@@ -1,27 +1,29 @@
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { fetchContacts } from 'redux/operations';
+import { lazy } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-import ContactForm from './ContactForm';
-import ContactList from './ContactList';
-import Filter from './Filter';
-import { Container, MainTitle, Title } from './App.styled';
+import { Layout } from './Layout/Layout';
+
+// import { Container, MainTitle, Title } from './App.styled';
+
+const HomePage = lazy(() => import('../pages/HomePage'));
+const RegisterPage = lazy(() => import('../pages/RegisterPage'));
+const LoginPage = lazy(() => import('../pages/LoginPage'));
+const ContactsPage = lazy(() => import('../pages/ContactsPage'));
 
 const App = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
-
-  return (
-    <Container>
-      <MainTitle>Phonebook</MainTitle>
-      <ContactForm />
-      <Title>Contacts</Title>
-      <Filter />
-      <ContactList />
+   return (
+    <div>
       <ToastContainer autoClose={3000} />
-    </Container>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+           <Route path="/register" element={<RegisterPage />} />
+           <Route path="/login" element={<LoginPage />} />
+           <Route path="/contacts" element={<ContactsPage />} />
+        </Route>
+      </Routes>
+    </div>
+    
   );
 };
 
