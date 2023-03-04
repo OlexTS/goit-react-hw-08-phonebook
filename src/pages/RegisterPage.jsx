@@ -4,9 +4,9 @@ import { RegisterForm } from 'components/RegisterForm/RegisterForm';
 const RegisterPage = () => {
   return (
     <div>
-      <Helmet>
+      {/* <Helmet>
         <title>Register</title>
-      </Helmet>
+      </Helmet> */}
           <p>Welcome to RegisterPAGE</p>
           <RegisterForm/>
     </div>

@@ -21,9 +21,9 @@ const ContactsPage = () => {
   
   return (
     <Container>
-      <Helmet>
+      {/* <Helmet>
         <title>Contacts</title>
-      </Helmet>
+      </Helmet> */}
       <ContactForm />
       <h1>Contacts</h1>
       <Filter />

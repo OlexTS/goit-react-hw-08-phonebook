@@ -35,12 +35,12 @@ const schema = Yup.object().shape({
       "^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$",
       'Please enter correct name'
     ),
-  phone: Yup.string().phone('UA').required(),
+  number: Yup.string().phone('UA').required(),
 });
 
 const initialValues = {
   name: '',
-  phone: '',
+  number: '',
 };
 const ContactForm = () => {
   const dispatch = useDispatch();
@@ -71,8 +71,8 @@ const ContactForm = () => {
         </Label>
         <Label>
           <Text>Phone</Text>
-          <Input type="tel" name="phone" placeholder="8-000-000-00-00" />
-          <FormError name="phone" />
+          <Input type="tel" name="number" placeholder="8-000-000-00-00" />
+          <FormError name="number" />
         </Label>
         <SubmitButton type="submit">Add contact</SubmitButton>
       </FormCont>

@@ -10,7 +10,7 @@ import {
   DeleteBtn,
 } from './ContactItem.styled';
 
-const ContactItem = ({ item: { name, phone, id } }) => {
+const ContactItem = ({ item: { name, number, id } }) => {
   const dispatch = useDispatch();
 
   const handleDeleteContacts = () => {
@@ -21,7 +21,7 @@ const ContactItem = ({ item: { name, phone, id } }) => {
   return (
     <Item>
       <ContactName>
-        {name}:<ContactNumber>{phone}</ContactNumber>
+        {name}:<ContactNumber>{number}</ContactNumber>
       </ContactName>
       <DeleteBtn type="button" onClick={handleDeleteContacts}>
         Delete

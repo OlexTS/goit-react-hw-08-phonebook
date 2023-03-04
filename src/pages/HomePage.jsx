@@ -3,9 +3,9 @@ import { Helmet } from 'react-helmet';
 const HomePage = () => {
   return (
     <div>
-      <Helmet>
+      {/* <Helmet>
         <title>Home</title>
-      </Helmet>
+      </Helmet> */}
       <p>Welcome to Phonebook</p>
     </div>
   );

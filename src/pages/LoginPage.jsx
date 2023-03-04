@@ -4,9 +4,9 @@ import { LoginForm } from 'components/LoginForm/LoginForm';
 const LoginPage = () => {
   return (
     <div>
-      <Helmet>
+      {/* <Helmet>
         <title>Login</title>
-      </Helmet>
+      </Helmet> */}
           <p>Welcome to LOGINPAGE</p>
           <LoginForm/>
     </div>
