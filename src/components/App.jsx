@@ -1,7 +1,10 @@
-import { lazy } from 'react';
+import { lazy, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import { Layout } from './Layout/Layout';
+import { refresh } from 'redux/auth/operations';
+import { useAuth } from 'hooks';
 
 // import { Container, MainTitle, Title } from './App.styled';
 
@@ -11,19 +14,27 @@ const LoginPage = lazy(() => import('../pages/LoginPage'));
 const ContactsPage = lazy(() => import('../pages/ContactsPage'));
 
 const App = () => {
-   return (
+  const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
+
+  useEffect(() => {
+    dispatch(refresh());
+  }, [dispatch]);
+
+  return isRefreshing ? (
+    <p>Refreshing user...</p>
+  ) : (
     <div>
       <ToastContainer autoClose={3000} />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
-           <Route path="/register" element={<RegisterPage />} />
-           <Route path="/login" element={<LoginPage />} />
-           <Route path="/contacts" element={<ContactsPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/contacts" element={<ContactsPage />} />
         </Route>
       </Routes>
     </div>
-    
   );
 };
 
