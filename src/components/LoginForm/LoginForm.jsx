@@ -10,7 +10,7 @@ export const LoginForm = () => {
       form.reset()
   };
   return (
-    <form onSubmit={handleSubmit} autoComplete="off">
+    <form onSubmit={handleSubmit}>
       <label>
         Email
         <input type="email" name="email" />
