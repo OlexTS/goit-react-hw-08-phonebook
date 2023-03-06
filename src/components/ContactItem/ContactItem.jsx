@@ -10,7 +10,9 @@ import {
   DeleteBtn,
 } from './ContactItem.styled';
 
-const ContactItem = ({ item: { name: nameValue, number: numberValue, id } }) => {
+const ContactItem = ({
+  item: { name: nameValue, number: numberValue, id },
+}) => {
   const [isEdit, setIsEdit] = useState(false);
   const [name, setName] = useState(nameValue);
   const [number, setNumber] = useState(numberValue);
@@ -24,16 +26,16 @@ const ContactItem = ({ item: { name: nameValue, number: numberValue, id } }) => 
   const handleEditMode = () => {
     if (isEdit) {
       setIsEdit(prev => !prev);
-      console.log({id, name, number});
-      dispatch(editContact({id, name, number}))
-      return
+      console.log({ id, name, number });
+      dispatch(editContact({ id, name, number }));
+      return;
     }
-    setIsEdit(prev=>!prev)
+    setIsEdit(prev => !prev);
     // dispatch(editContact(id));
     // toast.success('The contact was edit success')
-  }
-  
-  const handleChange = (e) => {
+  };
+
+  const handleChange = e => {
     switch (e.target.name) {
       case 'name':
         setName(e.target.value);
@@ -42,18 +44,32 @@ const ContactItem = ({ item: { name: nameValue, number: numberValue, id } }) => 
         setNumber(e.target.value);
         return;
       default:
-        return
+        return;
     }
-  }
+  };
 
   return (
     <Item>
-      {isEdit?<input name='name' onChange={handleChange} type="text" value={name} />:<ContactName>
-        {name}</ContactName> }:
-      {isEdit?<input name='number' onChange={handleChange} type="text" value={number} />:<ContactNumber>
-        {number}</ContactNumber> }
-      <DeleteBtn type='button' onClick={handleEditMode}>{isEdit ? 'Save' : 'Edit'} </DeleteBtn>
-      <DeleteBtn type="button" onClick={handleDeleteContacts} >
+      {isEdit ? (
+        <input name="name" onChange={handleChange} type="text" value={name} />
+      ) : (
+        <ContactName>{name}</ContactName>
+      )}
+      :
+      {isEdit ? (
+        <input
+          name="number"
+          onChange={handleChange}
+          type="text"
+          value={number}
+        />
+      ) : (
+        <ContactNumber>{number}</ContactNumber>
+      )}
+      <DeleteBtn type="button" onClick={handleEditMode}>
+        {isEdit ? 'Save' : 'Edit'}{' '}
+      </DeleteBtn>
+      <DeleteBtn type="button" onClick={handleDeleteContacts}>
         Delete
       </DeleteBtn>
     </Item>

@@ -1,11 +1,10 @@
-// import Helmet from 'react-helmet';
 import ContactForm from 'components/ContactForm';
 import ContactList from 'components/ContactList';
 import Filter from 'components/Filter';
 
 import styled from '@emotion/styled';
 
- const Container = styled.div`
+const Container = styled.div`
   display: block;
   text-align: center;
   margin: 40px auto;
@@ -18,16 +17,13 @@ import styled from '@emotion/styled';
 `;
 
 const ContactsPage = () => {
-  
   return (
     <Container>
-      {/* <Helmet>
-        <title>Contacts</title>
-      </Helmet> */}
+      <h1>Contacts</h1>
       <ContactForm />
       <h1>Contacts</h1>
       <Filter />
-      <ContactList/>
+      <ContactList />
     </Container>
   );
 };

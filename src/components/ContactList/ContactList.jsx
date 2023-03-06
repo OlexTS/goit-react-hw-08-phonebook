@@ -1,15 +1,14 @@
 import ContactItem from 'components/ContactItem';
-import { useEffect} from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectFilteredContacts } from 'redux/contacts/selectors';
 import { Text } from './ContactList.styled';
 import { fetchContacts } from 'redux/contacts/operations';
 
-
 const ContactList = () => {
   const contacts = useSelector(selectFilteredContacts);
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);

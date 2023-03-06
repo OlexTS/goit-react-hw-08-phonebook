@@ -1,25 +1,47 @@
-import { useDispatch } from "react-redux";
-import { logIn } from "redux/auth/operations";
+import { useDispatch } from 'react-redux';
+import { Formik, Field, ErrorMessage, Form } from 'formik';
+import { logIn } from 'redux/auth/operations';
+import { loginSchema } from 'helpers/validation';
+import { ErrorText } from './LoginForm.styled';
+
+const initialValues = {
+  email: '',
+  password: '',
+};
+
+const FormError = ({ name }) => {
+  return (
+    <ErrorMessage
+      name={name}
+      render={message => <ErrorText>{message}</ErrorText>}
+    />
+  );
+};
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
-  const handleSubmit = e => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    dispatch(logIn({email: form.elements.email.value, password: form.elements.password.value}))
-      form.reset()
+  const handleSubmit = values => {
+    dispatch(logIn({ email: values.email, password: values.password }));
   };
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Email
-        <input type="email" name="email" />
-      </label>
-      <label>
-        Password
-        <input type="password" name="password" />
-          </label>
-          <button type="submit">submit</button>
-    </form>
+    <Formik
+      initialValues={initialValues}
+      validationSchema={loginSchema}
+      onSubmit={handleSubmit}
+    >
+      <Form>
+        <label>
+          Email
+          <Field type="email" name="email" />
+          <FormError name="email" />
+        </label>
+        <label>
+          Password
+          <Field type="password" name="password" />
+          <FormError name="password" />
+        </label>
+        <button type="submit">submit</button>
+      </Form>
+    </Formik>
   );
 };
