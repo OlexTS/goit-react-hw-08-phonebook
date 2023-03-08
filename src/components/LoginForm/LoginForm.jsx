@@ -1,3 +1,4 @@
+// import { Box, TextField, IconButton, Typography } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { Formik, Field, ErrorMessage, Form } from 'formik';
 import { logIn } from 'redux/auth/operations';
@@ -19,10 +20,14 @@ const FormError = ({ name }) => {
 };
 
 export const LoginForm = () => {
+  // const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
   const handleSubmit = values => {
     dispatch(logIn({ email: values.email, password: values.password }));
   };
+
+  // const handleClickShowPassword = () => setShowPassword((show) => !show);
+
   return (
     <Formik
       initialValues={initialValues}
@@ -32,7 +37,7 @@ export const LoginForm = () => {
       <Form>
         <label>
           Email
-          <Field type="email" name="email" />
+          <Field type="email" name="email" label=''/>
           <FormError name="email" />
         </label>
         <label>

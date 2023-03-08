@@ -7,6 +7,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(
+      rgba(255, 249, 231, 0.7),
+      rgba(255, 249, 231, 0.7)
+    ),
+    url('./image/technology-3068617_960_720.jpg');
+  background-size: cover;
 }
 
 code {
@@ -34,4 +40,8 @@ img {
 
 ul {
   list-style: none;
+}
+
+a {
+  text-decoration: none;
 }

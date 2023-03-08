@@ -7,6 +7,8 @@ import { refresh } from 'redux/auth/operations';
 import { useAuth } from 'hooks';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
+import { Container } from './App.styled';
+
 
 // import { Container, MainTitle, Title } from './App.styled';
 
@@ -23,10 +25,8 @@ const App = () => {
     dispatch(refresh());
   }, [dispatch]);
 
-  return isRefreshing ? (
-    <p>Refreshing user...</p>
-  ) : (
-    <div>
+  return !isRefreshing && 
+    <Container>
       <ToastContainer autoClose={3000} />
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -57,8 +57,8 @@ const App = () => {
           />
         </Route>
       </Routes>
-    </div>
-  );
+    </Container>
+  
 };
 
 export default App;

@@ -1,7 +1,9 @@
+import { HomeView } from "components/HomeView/HomeView";
+
 const HomePage = () => {
   return (
     <div>
-      <h1>Home</h1>
+      <HomeView/>
     </div>
   );
 };

@@ -20,14 +20,14 @@ const ContactItem = ({
 
   const handleDeleteContacts = () => {
     dispatch(deleteContact(id));
-    toast.success('The contact is deleted from your book');
+    toast.success('The contact successfully deleted from your book');
   };
 
   const handleEditMode = () => {
     if (isEdit) {
       setIsEdit(prev => !prev);
-      console.log({ id, name, number });
       dispatch(editContact({ id, name, number }));
+      toast.success('The contact successfully edited')
       return;
     }
     setIsEdit(prev => !prev);
