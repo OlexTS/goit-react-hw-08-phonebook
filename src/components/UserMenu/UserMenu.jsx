@@ -1,6 +1,8 @@
 import { useDispatch } from 'react-redux';
+import { ImExit } from "react-icons/im";
 import { logOut } from 'redux/auth/operations';
 import { useAuth } from 'hooks';
+import { Container, Text, Button} from './UserMenu.styled';
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
@@ -11,11 +13,11 @@ export const UserMenu = () => {
   };
 
   return (
-    <div>
-      <p>Welcome, {user.name}</p>
-      <button type="button" onClick={handleClick}>
-        Logout
-      </button>
-    </div>
+    <Container>
+      <Text>Welcome, {user.name}</Text>
+      <Button type="button" onClick={handleClick}>
+        <ImExit size={36} fill="#632323" />
+      </Button>
+    </Container>
   );
 };

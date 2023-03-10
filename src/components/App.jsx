@@ -10,8 +10,6 @@ import { PrivateRoute } from './PrivateRoute';
 import { Container } from './App.styled';
 
 
-// import { Container, MainTitle, Title } from './App.styled';
-
 const HomePage = lazy(() => import('../pages/HomePage'));
 const RegisterPage = lazy(() => import('../pages/RegisterPage'));
 const LoginPage = lazy(() => import('../pages/LoginPage'));
