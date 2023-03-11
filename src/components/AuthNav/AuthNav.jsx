@@ -1,4 +1,4 @@
-import { Link, Nav } from "components/Navigation/Navigation.styled";
+import { Link, Nav } from './AuthNav.styled';
 
 export const AuthNav = () => {
   return (

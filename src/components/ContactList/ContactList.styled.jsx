@@ -5,3 +5,6 @@ export const Text = styled.p`
   font-weight: 700;
   color: red;
 `;
+export const List = styled.ul`
+  padding-top: 20px;
+`;

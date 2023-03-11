@@ -3,8 +3,15 @@ import { useDispatch } from 'react-redux';
 import { Formik, ErrorMessage } from 'formik';
 import { logIn } from 'redux/auth/operations';
 import { loginSchema } from 'helpers/validation';
-import { ErrorText, FormCont, LabelCont, Input, Text, SubmitButton, Title } from './LoginForm.styled';
-
+import {
+  ErrorText,
+  FormCont,
+  LabelCont,
+  Input,
+  Text,
+  SubmitButton,
+  Title,
+} from './LoginForm.styled';
 
 const initialValues = {
   email: '',
@@ -25,7 +32,6 @@ export const LoginForm = () => {
   const dispatch = useDispatch();
   const handleSubmit = values => {
     dispatch(logIn({ email: values.email, password: values.password }));
-    
   };
 
   // const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -35,18 +41,26 @@ export const LoginForm = () => {
       initialValues={initialValues}
       validationSchema={loginSchema}
       onSubmit={handleSubmit}
-      
     >
-      <FormCont autoComplete='off'>
+      <FormCont autoComplete="off">
         <Title>Login</Title>
         <LabelCont>
           <Text>Email</Text>
-          <Input type="email" name="email" label='' placeholder='Enter your email'/>
+          <Input
+            type="email"
+            name="email"
+            label=""
+            placeholder="Enter your email"
+          />
           <FormError name="email" />
         </LabelCont>
         <LabelCont>
           <Text>Password</Text>
-          <Input type="password" name="password" placeholder='Enter your password'/>
+          <Input
+            type="password"
+            name="password"
+            placeholder="Enter your password"
+          />
           <FormError name="password" />
         </LabelCont>
         <SubmitButton type="submit">Login</SubmitButton>

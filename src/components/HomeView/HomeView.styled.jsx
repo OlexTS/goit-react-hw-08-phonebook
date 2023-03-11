@@ -6,8 +6,8 @@ export const Container = styled.div`
 
 export const MainTitle = styled.h1`
   font-size: 40px;
-  color: #632323;
   margin-bottom: 20px;
+  color: #960909;
 `;
 
 export const SecondaryTitle = styled.h2`

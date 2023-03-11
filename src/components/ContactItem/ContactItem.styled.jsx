@@ -4,10 +4,16 @@ export const Item = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 2px solid brown;
+  border: 2px solid #c29e9e;
+  width: 450px;
   border-radius: 10px;
   padding: 5px;
   margin-bottom: 5px;
+  background: #fdfdfd;
+`;
+
+export const Info = styled.div`
+  display: flex;
 `;
 
 export const ContactName = styled.p`
@@ -34,4 +40,5 @@ export const DeleteBtn = styled.button`
     background-color: #bda6a6;
     color: white;
   }
+  transition: background-color 0.25s, color 0.25s;
 `;

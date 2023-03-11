@@ -1,9 +1,16 @@
 import { useDispatch } from 'react-redux';
-import { Formik, ErrorMessage, Form, Field } from 'formik';
+import { Formik, ErrorMessage} from 'formik';
 import { register } from 'redux/auth/operations';
-import { ErrorText, FormCont, Text, SubmitButton, LabelCont, Input, Title } from './RegisterForm.styled';
+import {
+  ErrorText,
+  FormCont,
+  Text,
+  SubmitButton,
+  LabelCont,
+  Input,
+  Title,
+} from './RegisterForm.styled';
 import { registerSchema } from 'helpers/validation';
-
 
 const initialValues = {
   name: '',
@@ -45,7 +52,7 @@ export const RegisterForm = () => {
       <FormCont autoComplete="off">
         <Title>Registration</Title>
         <LabelCont>
-                    <Text>Name</Text>  
+          <Text>Name</Text>
           <Input type="text" name="name" placeholder="Jack Daniel" />
           <FormError name="name" />
         </LabelCont>

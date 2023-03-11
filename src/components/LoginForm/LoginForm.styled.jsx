@@ -8,26 +8,24 @@ export const ErrorText = styled.p`
 `;
 
 export const FormCont = styled(Form)`
-padding-top: 80px;
-display: inline-block;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-
-`
+  padding-top: 80px;
+  display: inline-block;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
 export const Title = styled.h1`
-margin-bottom: 20px;
-`
+  margin-bottom: 20px;
+  color: #960909;
+`;
 
 export const LabelCont = styled.label`
-display: flex;
+  display: flex;
   flex-direction: column;
   margin-bottom: 10px;
-  
-
-`
+`;
 export const Text = styled.span`
-font-size: 18px;
+  font-size: 18px;
   font-weight: 500;
   margin-bottom: 5px;
   text-align: start;
@@ -62,4 +60,5 @@ export const SubmitButton = styled.button`
     color: white;
     border: 2px solid #c29e9e;
   }
+  transition: background-color 0.25s, color 0.25s;
 `;

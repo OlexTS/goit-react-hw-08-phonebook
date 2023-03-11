@@ -8,8 +8,10 @@ import {
   ContactName,
   ContactNumber,
   DeleteBtn,
+  Info,
 } from './ContactItem.styled';
-
+// import {GrEdit} from "react-icons/gr";
+import { FaSave, FaEdit, FaRegTrashAlt } from 'react-icons/fa';
 const ContactItem = ({
   item: { name: nameValue, number: numberValue, id },
 }) => {
@@ -27,7 +29,7 @@ const ContactItem = ({
     if (isEdit) {
       setIsEdit(prev => !prev);
       dispatch(editContact({ id, name, number }));
-      toast.success('The contact successfully edited')
+      toast.success('The contact successfully edited');
       return;
     }
     setIsEdit(prev => !prev);
@@ -50,28 +52,32 @@ const ContactItem = ({
 
   return (
     <Item>
-      {isEdit ? (
-        <input name="name" onChange={handleChange} type="text" value={name} />
-      ) : (
-        <ContactName>{name}</ContactName>
-      )}
-      :
-      {isEdit ? (
-        <input
-          name="number"
-          onChange={handleChange}
-          type="text"
-          value={number}
-        />
-      ) : (
-        <ContactNumber>{number}</ContactNumber>
-      )}
-      <DeleteBtn type="button" onClick={handleEditMode}>
-        {isEdit ? 'Save' : 'Edit'}{' '}
-      </DeleteBtn>
-      <DeleteBtn type="button" onClick={handleDeleteContacts}>
-        Delete
-      </DeleteBtn>
+      <Info>
+        {isEdit ? (
+          <input name="name" onChange={handleChange} type="text" value={name} />
+        ) : (
+          <ContactName>{name}:</ContactName>
+        )}
+
+        {isEdit ? (
+          <input
+            name="number"
+            onChange={handleChange}
+            type="text"
+            value={number}
+          />
+        ) : (
+          <ContactNumber>{number}</ContactNumber>
+        )}
+      </Info>
+      <div>
+        <DeleteBtn type="button" onClick={handleEditMode}>
+          {isEdit ? <FaSave size={16} /> : <FaEdit size={16} />}{' '}
+        </DeleteBtn>
+        <DeleteBtn type="button" onClick={handleDeleteContacts}>
+          <FaRegTrashAlt size={16} />
+        </DeleteBtn>
+      </div>
     </Item>
   );
 };
