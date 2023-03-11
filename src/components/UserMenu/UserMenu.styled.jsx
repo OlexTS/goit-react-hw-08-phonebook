@@ -2,12 +2,12 @@ import styled from '@emotion/styled';
 
 export const Container = styled.div`
     display: flex;
-    /* align-items: center; */
-    /* justify-content: center; */
+    align-items: center;
+    justify-content: center;
 `
 
 export const Text = styled.p`
-font-size: 26px;
+font-size: 24px;
 font-weight: 500;
 margin-right: 30px;
 color: #632323;

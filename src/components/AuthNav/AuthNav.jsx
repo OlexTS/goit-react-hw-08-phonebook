@@ -1,11 +1,10 @@
-import { NavLink } from 'react-router-dom';
-import Button from '@mui/material/Button';
+import { Link, Nav } from "components/Navigation/Navigation.styled";
 
 export const AuthNav = () => {
   return (
-    <div>
-      <NavLink to="/register"><Button color="inherit">Register</Button></NavLink>
-      <NavLink to="/login"><Button color="inherit" >Login</Button></NavLink>
-    </div>
+    <Nav>
+      <Link to="/register">Register</Link>
+      <Link to="/login">Login</Link>
+    </Nav>
   );
 };

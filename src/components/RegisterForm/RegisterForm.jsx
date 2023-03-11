@@ -1,8 +1,9 @@
 import { useDispatch } from 'react-redux';
 import { Formik, ErrorMessage, Form, Field } from 'formik';
 import { register } from 'redux/auth/operations';
-import { ErrorText } from './RegisterForm.styled';
+import { ErrorText, FormCont, Text, SubmitButton, LabelCont, Input, Title } from './RegisterForm.styled';
 import { registerSchema } from 'helpers/validation';
+
 
 const initialValues = {
   name: '',
@@ -41,37 +42,38 @@ export const RegisterForm = () => {
       validationSchema={registerSchema}
       onSubmit={handleSubmit}
     >
-      <Form autoComplete="off">
-        <label>
-          Name
-          <Field type="text" name="name" placeholder="Jack Daniel" />
+      <FormCont autoComplete="off">
+        <Title>Registration</Title>
+        <LabelCont>
+                    <Text>Name</Text>  
+          <Input type="text" name="name" placeholder="Jack Daniel" />
           <FormError name="name" />
-        </label>
-        <label>
-          Email
-          <Field type="email" name="email" placeholder="jackdaniel@gmail.com" />
+        </LabelCont>
+        <LabelCont>
+          <Text>Email</Text>
+          <Input type="email" name="email" placeholder="jackdaniel@gmail.com" />
           <FormError name="email" />
-        </label>
-        <label>
-          Password
-          <Field
+        </LabelCont>
+        <LabelCont>
+          <Text>Password</Text>
+          <Input
             type="password"
             name="password"
             placeholder="Enter a password"
           />
           <FormError name="password" />
-        </label>
-        <label>
-          Password confirm
-          <Field
+        </LabelCont>
+        <LabelCont>
+          <Text>Password confirm</Text>
+          <Input
             type="password"
             name="confirm"
             placeholder="Enter a password once again"
           />
           <FormError name="confirm" />
-        </label>
-        <button type="submit">Submit</button>
-      </Form>
+        </LabelCont>
+        <SubmitButton type="submit">Submit</SubmitButton>
+      </FormCont>
     </Formik>
   );
 };

@@ -50,7 +50,7 @@ const ContactForm = () => {
     >
       <FormCont autoComplete="off">
         <Label>
-          <Text>Name</Text>
+          <Text>Name</Text> 
           <Input type="text" name="name" placeholder="Jack Daniel" />
           <FormError name="name" />
         </Label>
