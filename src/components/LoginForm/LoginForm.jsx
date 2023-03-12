@@ -1,8 +1,6 @@
-// import { Box, TextField, IconButton, Typography } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import { Formik, ErrorMessage } from 'formik';
 import { logIn } from 'redux/auth/operations';
-import { loginSchema } from 'helpers/validation';
 import {
   ErrorText,
   FormCont,
@@ -28,20 +26,13 @@ const FormError = ({ name }) => {
 };
 
 export const LoginForm = () => {
-  // const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
   const handleSubmit = values => {
     dispatch(logIn({ email: values.email, password: values.password }));
   };
 
-  // const handleClickShowPassword = () => setShowPassword((show) => !show);
-
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={loginSchema}
-      onSubmit={handleSubmit}
-    >
+    <Formik initialValues={initialValues} onSubmit={handleSubmit}>
       <FormCont autoComplete="off">
         <Title>Login</Title>
         <LabelCont>
