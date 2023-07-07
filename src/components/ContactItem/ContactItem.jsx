@@ -13,7 +13,7 @@ import {
 // import {GrEdit} from "react-icons/gr";
 import { FaSave, FaEdit, FaRegTrashAlt } from 'react-icons/fa';
 const ContactItem = ({
-  item: { name: nameValue, number: numberValue, id },
+  item: { name: nameValue, number: numberValue, _id },
 }) => {
   const [isEdit, setIsEdit] = useState(false);
   const [name, setName] = useState(nameValue);
@@ -21,14 +21,14 @@ const ContactItem = ({
   const dispatch = useDispatch();
 
   const handleDeleteContacts = () => {
-    dispatch(deleteContact(id));
+    dispatch(deleteContact(_id));
     toast.success('The contact successfully deleted from your book');
   };
 
   const handleEditMode = () => {
     if (isEdit) {
       setIsEdit(prev => !prev);
-      dispatch(editContact({ id, name, number }));
+      dispatch(editContact(  {_id, name, number} ));
       toast.success('The contact successfully edited');
       return;
     }
@@ -84,7 +84,7 @@ const ContactItem = ({
 
 ContactItem.propTypes = {
   item: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    _id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     number: PropTypes.string.isRequired,
   }),

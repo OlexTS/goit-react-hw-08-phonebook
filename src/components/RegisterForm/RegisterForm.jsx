@@ -41,6 +41,7 @@ export const RegisterForm = () => {
       })
     );
     resetForm();
+    
   };
 
   return (
