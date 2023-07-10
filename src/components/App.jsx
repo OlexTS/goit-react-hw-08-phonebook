@@ -1,5 +1,5 @@
 import { lazy, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route} from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import { Layout } from './Layout/Layout';
@@ -17,6 +17,7 @@ const ContactsPage = lazy(() => import('../pages/ContactsPage'));
 const App = () => {
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
+  
 
   useEffect(() => {
     dispatch(refresh());
@@ -33,8 +34,8 @@ const App = () => {
               path="/register"
               element={
                 <RestrictedRoute
-                  redirectTo="/contacts"
-                  component={<RegisterPage />}
+                  redirectTo="/login"
+                  component={<RegisterPage  />}
                 />
               }
             />
