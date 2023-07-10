@@ -6,7 +6,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import App from 'components/App';
 import './index.css';
 import { store, persistor } from 'redux/store';
-import { ThemeProvider } from '@mui/private-theming';
+
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(

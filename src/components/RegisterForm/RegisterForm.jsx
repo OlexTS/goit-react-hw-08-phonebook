@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { Formik, ErrorMessage } from 'formik';
 import { register } from 'redux/auth/operations';
 import {
@@ -30,6 +31,7 @@ const FormError = ({ name }) => {
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
 
   const handleSubmit = (values, { resetForm }) => {
     dispatch(
@@ -41,6 +43,7 @@ export const RegisterForm = () => {
       })
     );
     resetForm();
+navigate('/login')
     
   };
 
