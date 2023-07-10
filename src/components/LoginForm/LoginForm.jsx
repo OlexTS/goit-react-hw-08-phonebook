@@ -10,6 +10,7 @@ import {
   SubmitButton,
   Title,
 } from './LoginForm.styled';
+import { loginSchema } from 'helpers/validation';
 
 const initialValues = {
   email: '',
@@ -28,11 +29,11 @@ const FormError = ({ name }) => {
 export const LoginForm = () => {
   const dispatch = useDispatch();
   const handleSubmit = values => {
-    dispatch(logIn({ email: values.email, password: values.password }));
-  };
+  dispatch(logIn({ email: values.email, password: values.password }));
+};
 
   return (
-    <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+    <Formik initialValues={initialValues} onSubmit={handleSubmit} validationSchema={loginSchema}>
       <FormCont autoComplete="off">
         <Title>Login</Title>
         <LabelCont>
