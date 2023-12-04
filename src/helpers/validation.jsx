@@ -40,6 +40,6 @@ export const contactsSchema = Yup.object().shape({
       "^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$",
       'Please enter correct name'
     ),
-  number: Yup.string().phone('UA').required('A phone number is required'),
+  number: Yup.string().phone(/^(\+38)\s?\(?\d{3}\)?\s?\d{3}-?\d{4}$/).required('A phone number is required'),
 });
 
